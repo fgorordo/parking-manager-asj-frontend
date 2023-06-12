@@ -17,9 +17,15 @@ export const uiSlice = createSlice({
   reducers: {
     handleToggleMenu: (state) => {
         state.isMenuOpen = !state.isMenuOpen;
+    },
+    useOpenModal: (state) => {
+      state.isModalOpen = true;
+    },
+    useCloseModal: (state) => {
+      state.isModalOpen = false;
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { handleToggleMenu } = uiSlice.actions
+export const { handleToggleMenu, useOpenModal, useCloseModal } = uiSlice.actions

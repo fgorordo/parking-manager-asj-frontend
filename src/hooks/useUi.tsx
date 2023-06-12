@@ -1,16 +1,27 @@
 import { useAppDispatch, useAppSelector } from './useAppSelector'
-import { handleToggleMenu } from '../store'
+import { handleToggleMenu, useOpenModal, useCloseModal } from '../store'
 
 export const useUi = () => {
-    const { isMenuOpen } = useAppSelector(state => state.ui)
+    const { isMenuOpen, isModalOpen } = useAppSelector(state => state.ui)
     const dispatch = useAppDispatch()
 
     const handleToggleDesktopMenu = () => {
         dispatch(handleToggleMenu())
     }
 
+    const handleOpenModal = () => {
+        dispatch(useOpenModal());
+    }
+
+    const handleCloseModal = () => {
+        dispatch(useCloseModal());
+    }
+
     return {
         isMenuOpen,
-        handleToggleDesktopMenu
+        isModalOpen,
+        handleToggleDesktopMenu,
+        handleCloseModal,
+        handleOpenModal
     }
 }
